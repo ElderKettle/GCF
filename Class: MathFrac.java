@@ -40,17 +40,34 @@ class MathFrac{
 
     remn = 1;
     remd = 1;
-
     int GCF = Math.abs((num1 * den2) + (num2 * den1)) + 1;
 
     while (remn != 0 || remd != 0) {
       GCF--;
       remn = Math.IEEEremainder((num1 * den2) + (num2 * den1), GCF);
       remd = Math.IEEEremainder((den1 * den2), GCF);
+  }
+
+    if(den1 * den2 == 0){
+
+      return ("INVALID");
+
+  }
+    else if ((num1 * den2) + (num2 * den1) == 0 || (den1 * den2)/GCF == 1) {
+
+      return (((num1 * den2) + (num2 * den1))/GCF + "");
+
+  }
+    else if ((den1 * den2)/GCF == -1) {
+
+      return (-1 * (((num1 * den2) + (num2 * den1))/GCF) + "");
+
+  }
+    else {
+
+      return (((num1 * den2) + (num2 * den1))/GCF + "/" + (den1 * den2)/GCF);
+
     }
-
-    return (((num1 * den2) + (num2 * den1))/GCF + "/" + (den1 * den2)/GCF);
-
   }
 
   public void printAdd(){
@@ -80,7 +97,26 @@ class MathFrac{
     remd = Math.IEEEremainder((den1 * den2), GCF);
   }
 
-  return (((num1 * den2) - (num2 * den1))/GCF + "/" + (den1 * den2)/GCF);
+  if(den1 * den2 == 0){
+
+    return ("INVALID");
+
+  }
+  else if ((num1 * den2) - (num2 * den1) == 0 || (den1 * den2)/GCF == 1) {
+
+    return (((num1 * den2) - (num2 * den1))/GCF + "");
+
+  }
+  else if ((den1 * den2)/GCF == -1) {
+
+    return (1 * (((num1 * den2) - (num2 * den1))/GCF) + "");
+
+  }
+  else {
+
+    return (((num1 * den2) - (num2 * den1))/GCF + "/" + (den1 * den2)/GCF);
+    
+  }  
 
 }
 
@@ -97,7 +133,26 @@ class MathFrac{
     remd = Math.IEEEremainder((den1 * den2), GCF);
   }
 
-  return (((num2 * den1) - (num1 * den2))/GCF + "/" + (den1 * den2)/GCF);
+  if(den1 * den2 == 0){
+
+    return ("INVALID");
+
+  }
+  else if ((num2 * den1) - (num1 * den2) == 0 || (den1 * den2)/GCF == 1) {
+
+    return (((num2 * den1) - (num1 * den2))/GCF + "");
+
+  }
+  else if ((den1 * den2)/GCF == -1) {
+
+    return (-1 * (((num2 * den1) - (num1 * den2))/GCF) + "");
+
+  }
+  else {
+
+    return (((num2 * den1) - (num1 * den2))/GCF + "/" + (den1 * den2)/GCF);
+    
+  }  
 
 }
 
@@ -139,8 +194,26 @@ public void printSub(){
       remd = Math.IEEEremainder((den1 * den2), GCF);
     }
 
-    return ((num1 * num2)/GCF + "/" + (den1 * den2)/GCF);
+    if(den1 * den2 == 0){
 
+      return ("INVALID");
+
+    }
+    else if (num1 * num2 == 0 || (den1 * den2)/GCF == 1) {
+
+      return ((num1 * num2)/GCF + "");
+
+    }
+    else if ((den1 * den2)/GCF == -1) {
+
+      return ((-1 * num1 * num2)/GCF + "");
+
+    }
+    else {
+
+      return ((num1 * num2)/GCF + "/" + (den1 * den2)/GCF);
+
+    }
   }
 
   public void printMult(){
@@ -170,25 +243,63 @@ public void printSub(){
     remd = Math.IEEEremainder((den1 * num2), GCF);
   }
 
-  return ((num1 * den2)/GCF + "/" + (num2 * den1)/GCF);
+    if(num2 * den1 == 0){
+
+      return ("INVALID");
+
+    }
+    else if ((num2 * den1)/GCF == 1 || (num1 * den2)/GCF == 0) {
+
+      return ((num1 * den2)/GCF + "");
+
+    }
+    else if ((num2 * den1)/GCF == -1) {
+
+      return ((-1 * num1 * den2) /GCF + "");
+
+    }
+    else {
+
+      return ((num1 * den2)/GCF + "/" + (num2 * den1)/GCF);
+
+    }
 
   }
 
   public String DivAlt(){
 
-  remn = 1;
-  remd = 1;
+    remn = 1;
+    remd = 1;
+    int GCF = Math.abs(num2 * den1) + 1;
 
-  int GCF = Math.abs(num2 * den1) + 1;
+      while (remn != 0 || remd != 0) {
 
-  while (remn != 0 || remd != 0) {
-    GCF--;
-    remn = Math.IEEEremainder((num2 * den1), GCF);
-    remd = Math.IEEEremainder((den2 * num1), GCF);
-  }
+        GCF--;
+        remn = Math.IEEEremainder((num2 * den1), GCF);
+        remd = Math.IEEEremainder((den2 * num1), GCF);
 
-  return ((num2 * den1)/GCF + "/" + (den2 * num1)/GCF);
+    }
 
+      if(den2 * num1 == 0){
+
+        return ("INVALID");
+
+    }
+      else if (num2 * den1 == 0 || (den2 * num1)/GCF == 1) {
+
+        return ((num2 * den1)/GCF + "");
+
+    }
+      else if ((den2 * num1)/GCF == -1) {
+
+        return (-1 * ((num2 * den1)/GCF) + "");
+
+    }
+      else {
+
+        return ((num2 * den1)/GCF + "/" + (den2 * num1)/GCF);
+
+    }
   }
 
 public void printDiv(){
